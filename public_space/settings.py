@@ -128,5 +128,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/space/post-limit/'
 
+import os
+import dj_database_url
+
+# Static files settings
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+
+# Security & Debug
+DEBUG = False
+ALLOWED_HOSTS = ['your-render-app-name.onrender.com']
+
+# Use dj_database_url to handle database URLs from environment variables
+DATABASES['default'] = dj_database_url.config(default='sqlite:///db.sqlite3')
 
 
