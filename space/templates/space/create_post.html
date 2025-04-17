@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Tweet</title>
+</head>
+<body>
+    <h1>Post a Tweet</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="content" placeholder="What's on your mind?"></textarea>
+        <button type="submit">Post Tweet</button>
+    </form>
+</body>
+</html>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
