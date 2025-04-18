@@ -12,9 +12,6 @@ services:
         value: "false"
       - key: DJANGO_ALLOWED_HOSTS
         value: "public_space.onrender.com"
-
-      - key: DATABASE_URL
-        value: "postgres://username:password@hostname:port/database"
       - key: DJANGO_SETTINGS_MODULE
         value: "public_space.settings"
     autoDeploy: true
@@ -23,6 +20,3 @@ databases:
   - name: default
     type: postgres
     plan: free
-    envVars:
-      - key: DATABASE_URL
-        value: "postgres://username:password@hostname:port/database"
