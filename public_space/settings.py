@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-0+w1teh(-+$!ur8b&xl9xaxu$-*%tzpegjzq0$(fl$mjoi0ij1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['public-space.onrender.com']
+import os
+
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost").split(",")
+
 
 
 
