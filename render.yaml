@@ -16,7 +16,7 @@ services:
       - key: DATABASE_URL
         value: "postgres://username:password@hostname:port/database"
       - key: DJANGO_SETTINGS_MODULE
-        value: "public_space.settings.production"
+        value: "public_space.settings"
     autoDeploy: true
 
 databases:
