@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: public-space
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn public_spcace.wsgi:application"
+    plan: free
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: "your-secret-key"
+      - key: DJANGO_DEBUG
+        value: "false"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "yourdomain.com"
+      - key: DATABASE_URL
+        value: "postgres://username:password@hostname:port/database"
+      - key: DJANGO_SETTINGS_MODULE
+        value: "public_spcace.settings.production"
+    autoDeploy: true
+
+databases:
+  - name: default
+    type: postgres
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: "postgres://username:password@hostname:port/database"
