@@ -7,7 +7,7 @@ services:
     plan: free
     envVars:
       - key: DJANGO_SECRET_KEY
-        value: "your-secret-key"
+        value: "django-insecure-0+w1teh(-+$!ur8b&xl9xaxu$-*%tzpegjzq0$(fl$mjoi0ij1"
       - key: DJANGO_DEBUG
         value: "false"
       - key: DJANGO_ALLOWED_HOSTS
