@@ -3,7 +3,7 @@ services:
     name: public-space
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn public_spcace.wsgi:application"
+    startCommand: "gunicorn public_space.wsgi:application"
     plan: free
     envVars:
       - key: DJANGO_SECRET_KEY
