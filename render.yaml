@@ -10,8 +10,7 @@ services:
         value: "django-insecure-0+w1teh(-+$!ur8b&xl9xaxu$-*%tzpegjzq0$(fl$mjoi0ij1"
       - key: DJANGO_DEBUG
         value: "false"
-      - key: DJANGO_ALLOWED_HOSTS
-        value: "public_space.onrender.com"
+      
       - key: DJANGO_SETTINGS_MODULE
         value: "public_space.settings"
       - key: DJANGO_ALLOWED_HOSTS
