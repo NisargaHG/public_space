@@ -5,12 +5,20 @@
     <title>Login</title>
 </head>
 <body>
-    <h2>Login</h2>
+    <h1>Login</h1>
 
-    <form method="post">
+    {% if form.errors %}
+        <p style="color: red;">Invalid username or password.</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Login</button>
     </form>
+
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
 </body>
 </html>
