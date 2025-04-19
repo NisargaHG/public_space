@@ -165,5 +165,7 @@ def post_limit_view(request):
     })
 from django.http import HttpResponse
 
+from django.shortcuts import render
+
 def home(request):
-    return HttpResponse("🌌 Welcome to the Public Space app!")
+    return render(request, 'space/home.html')

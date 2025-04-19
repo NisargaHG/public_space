@@ -12,5 +12,4 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('space/', include('space.urls')),
     path('', include('space.urls')),  
-    path('login/', include('django.contrib.auth.urls')),
 ]
