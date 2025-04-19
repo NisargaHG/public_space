@@ -31,7 +31,7 @@ DEBUG = os.getenv("DJANGO_DEBUG", "false").lower() == "true"
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
-print("ALLOWED_HOSTS =", ALLOWED_HOSTS)  
+
 
 
 
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'public_space.settings.PrintHostMiddleware', 
+    
 ]
 
 ROOT_URLCONF = 'public_space.urls'
