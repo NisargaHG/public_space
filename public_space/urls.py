@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+def home(request):
+    return HttpResponse("🚀 Your Django app is live on Render!")
 
 
 urlpatterns = [
