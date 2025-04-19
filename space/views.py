@@ -169,3 +169,11 @@ from django.shortcuts import render
 
 def home(request):
     return render(request, 'space/home.html')
+from django.http import HttpResponseForbidden
+from django.utils.decorators import decorator_from_middleware
+
+def log_csrf_failure(request):
+    print(f"CSRF failure: {request.META}")
+    return HttpResponseForbidden("Forbidden (403): CSRF verification failed.")
+
+CsrfViewMiddleware = decorator_from_middleware(log_csrf_failure)
