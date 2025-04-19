@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Public Space</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'space:post-limit' %}">Post Limit</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome to Public Space</h1>
+
+        <div class="post-section">
+            <h2>Post Limit</h2>
+            <p>Your current post limit is: {% if post_limit %}{{ post_limit }}{% else %}Unlimited{% endif %}</p>
+
+            <form method="POST" action="{% url 'space:post-limit' %}">
+                {% csrf_token %}
+                <!-- Post Limit Update Form -->
+                <button type="submit" class="btn">Update Post Limit</button>
+            </form>
+        </div>
+
+        <!-- Optional Section for Displaying Dynamic Content -->
+        <div class="dynamic-content">
+            <h3>Recent Posts</h3>
+            <ul>
+                {% for post in posts %}
+                    <li>{{ post.content }} - {{ post.created_at }}</li>
+                {% empty %}
+                    <li>No posts yet!</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Public Space. All rights reserved.</p>
+    </footer>
+</body>
+</html>
