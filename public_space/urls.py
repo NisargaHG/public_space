@@ -7,7 +7,7 @@ def home(request):
     return HttpResponse("🚀 Your Django app is live on Render!")
 
 urlpatterns = [
-    path('', home, name='home'),  
+    
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('space/', include('space.urls')),
