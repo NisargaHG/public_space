@@ -92,7 +92,7 @@ def post_limit_view(request):
     today = localtime().date()
 
     try:
-        profile = UserProfile.objects.get(user=user)
+        profile, created = UserProfile.objects.get_or_create(user=request.user)
     except UserProfile.DoesNotExist:
         return render(request, 'space/post_limit.html', {
             'followers': 0,
