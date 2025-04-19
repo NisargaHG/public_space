@@ -163,3 +163,7 @@ def post_limit_view(request):
         'status': status,
         'reason': reason
     })
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("🌌 Welcome to the Public Space app!")
