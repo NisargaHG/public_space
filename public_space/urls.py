@@ -9,7 +9,7 @@ def home(request):
 urlpatterns = [
     
     path('admin/', admin.site.urls),
-    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('space/', include('space.urls')),
     path('', include('space.urls')),  
 ]

@@ -87,3 +87,19 @@ LOGIN_REDIRECT_URL = '/space/post-limit/'
 
 # Email backend for dev
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+import sys
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
+CSRF_FAILURE_VIEW = 'django.views.csrf.csrf_failure'
