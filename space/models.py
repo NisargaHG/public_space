@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from datetime import date
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='profile')
     following = models.ManyToManyField(User, related_name='followed_by_profiles', blank=True)
 
     posts_today = models.PositiveIntegerField(default=0)
