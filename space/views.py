@@ -61,7 +61,7 @@ def post_limit_view(request):
     elif following_count == 0:
         rule_type = 'one_post_time_slot'
         tweet_limit = 1
-        allowed_time = time(10, 0) <= now_time <= time(10, 30)
+        allowed_time = time(10, 0) <= now_time <= time(11, 30)
         tweets_today = Tweet.objects.filter(user=user, rule_type=rule_type, created_at__date=today).count()
         can_post = allowed_time and tweets_today < tweet_limit
         if not allowed_time:
@@ -108,14 +108,14 @@ def post_tweet_view(request):
             messages.error(request, "User profile not found.")
             return redirect('space:post_limit')
 
-        # Fetch relationships
+        
         followers_qs = Follow.objects.filter(followed=user)
         following_qs = Follow.objects.filter(follower=user)
 
         followers_count = followers_qs.count()
         following_count = following_qs.count()
 
-        # Get mutual followers (friends)
+       
         follower_ids = followers_qs.values_list('follower_id', flat=True)
         following_ids = following_qs.values_list('followed_id', flat=True)
         friends_count = len(set(follower_ids) & set(following_ids))
@@ -142,7 +142,7 @@ def post_tweet_view(request):
             rule_type = 'one_post_time_slot'
             tweet_limit = 1
             # Posting allowed only between 10:00 AM - 10:30 AM IST
-            allowed_time = time(10, 0) <= now_time <= time(10, 30)
+            allowed_time = time(10, 0) <= now_time <= time(11, 30)
             if not allowed_time:
                 messages.error(request, "Posting is allowed only between 10:00 AM - 10:30 AM IST.")
                 return redirect('space:post_limit')
